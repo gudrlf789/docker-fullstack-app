@@ -21,3 +21,13 @@ after_success:
   - docker push gudrlf789/docker-frontend
   - docker push gudrlf789/docker-backend
   - docker push gudrlf789/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "어플리케이션 이름"
+  env: "환경 이름"
+  bucket_name: S3 버킷 이름
+  bucket_path: "application 이름과 동일"
+  on:
+    branch: master
